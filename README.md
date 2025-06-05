@@ -304,30 +304,3 @@ from predict import predict_intents
 intents = predict_intents("your query")
 print(f"Detected intents: {intents}")
 ```
-
----
-
-## 📞 Support & Contact
-
-For technical support or business inquiries:
-- **Email**: [Your Email]
-- **WhatsApp**: [Your WhatsApp]
-- **Location**: Bandung, West Java, Indonesia
-
----
-
-## 📄 License
-
-This project is designed for a motorcycle spare parts business in Bandung, Indonesia. Feel free to adapt it for similar businesses.
-
----
-
-## 🙏 Acknowledgments
-
-- **Scikit-learn** for machine learning capabilities
-- **Indonesian NLP Community** for language processing insights
-- **Bandung Tech Community** for local business context
-
----
-
-**🎯 Ready to serve your customers with intelligent, multi-intent chatbot in Bahasa Indonesia! 🏍️✨** 
