@@ -1,385 +1,101 @@
 # ml_model/intent_data.py
 
-training_sentences = [
-    # Harga (30 sentences)
-    "Berapa harga mounting untuk Vario?",
-    "Harga lampu LED untuk Beat berapa?",
-    "Biaya pemasangan mounting di rumah berapa?",
-    "Saya ingin tahu harga body motor",
-    "Apakah ada diskon untuk pembelian banyak?",
-    "Harga totalnya berapa kalau sama ongkir?",
-    "Berapa harga lampu sein yang terang?",
-    "Kalau beli mounting sama body, ada paket harga?",
-    "Mau tanya harga body custom untuk Jupiter",
-    "Berapa biaya jasa pemasangan di Bandung?",
-    "Harga mounting sport untuk motor matic berapa?",
-    "Lampu variasi harganya mulai dari berapa?",
-    "Ada harga khusus untuk reseller gak?",
-    "Biaya pasang mounting di workshop berapa?",
-    "Harga body belakang untuk Vario 125?",
-    "Brp duit kalo mau beli lampu LED?",
-    "Kisaran harga mounting carbon berapa ya?",
-    "Ada promo harga buat member gak?",
-    "Tarif pemasangan lampu angel eyes berapa?",
-    "Harga grosir mounting gimana sistemnya?",
-    "Budget berapa buat ganti body motor?",
-    "Ongkos pasang mounting di rumah mahal gak?",
-    "Price list lampu projector ada?",
-    "Berapa total kalau beli paket lengkap?",
-    "Harga second mounting bekas ada?",
-    "Biaya customize body motor berapa?",
-    "Range harga lampu variasi berapa sampai berapa?",
-    "Ada cicilan untuk pembelian mahal?",
-    "Cost pemasangan body kit berapa?",
-    "Estimasi budget keseluruhan berapa?",
+from data.harga import harga_sentences
+from data.daftar import daftar_sentences  
+from data.kategori_lighting import kategori_lighting_sentences
+from data.kategori_mounting_body import kategori_mounting_body_sentences
+from data.stok_produk import stok_produk_sentences
+from data.jam_operasional import jam_operasional_sentences
+from data.garansi import garansi_sentences
+from data.booking_pemasangan import booking_pemasangan_sentences
+from data.pengiriman import pengiriman_sentences
+from data.durasi_pengiriman import durasi_pengiriman_sentences
+from data.wilayah_pemasangan import wilayah_pemasangan_sentences
+from data.tipe_motor_matic import tipe_motor_matic_sentences
+from data.layanan_instalasi import layanan_instalasi_sentences
 
-    # Daftar/Registrasi (25 sentences)
-    "Gimana cara daftar jadi member?",
-    "Saya ingin mendaftar sebagai reseller",
-    "Langkah-langkah pendaftaran apa saja?",
-    "Bagaimana cara buat akun di toko ini?",
-    "Mau daftar untuk dapat harga grosir",
-    "Pendaftaran lewat WhatsApp bisa?",
-    "Apakah harus daftar dulu sebelum beli?",
-    "Form registrasi ada di mana?",
-    "Saya pengen jadi agen, gimana caranya?",
-    "Syarat daftar member apa aja?",
-    "Bisa daftar langsung di toko?",
-    "Cara daftar online gimana?",
-    "Mau gabung jadi distributor",
-    "Pendaftaran gratis atau bayar?",
-    "Register akun baru di mana?",
-    "Prosedur jadi reseller gimana?",
-    "Aplikasi membership ada gak?",
-    "Gimana caranya join sebagai mitra?",
-    "Daftar member lewat website bisa?",
-    "Syarat jadi agen wilayah apa?",
-    "Mau bikin akun dealer gimana?",
-    "Registrasi partner bisnis bisa?",
-    "Cara gabung program reseller?",
-    "Sign up jadi member di mana?",
-    "Formulir kemitraan ada gak?",
+def get_training_data():
+    """
+    Returns comprehensive training data with 100+ examples per intent category
+    Total sentences: 1300+ across 13 intent categories
+    """
+    
+    # Combine all intent data with labels
+    training_data = []
+    
+    # Add harga sentences (100+ examples)
+    for sentence in harga_sentences:
+        training_data.append((sentence, "harga"))
+    
+    # Add daftar sentences (100+ examples)
+    for sentence in daftar_sentences:
+        training_data.append((sentence, "daftar"))
+    
+    # Add jam_operasional sentences (100+ examples)
+    for sentence in jam_operasional_sentences:
+        training_data.append((sentence, "jam_operasional"))
+    
+    # Add garansi sentences (100+ examples)
+    for sentence in garansi_sentences:
+        training_data.append((sentence, "garansi"))
+        
+    # Add booking_pemasangan sentences (100+ examples)
+    for sentence in booking_pemasangan_sentences:
+        training_data.append((sentence, "booking_pemasangan"))
+        
+    # Add kategori_mounting_body sentences (100+ examples)
+    for sentence in kategori_mounting_body_sentences:
+        training_data.append((sentence, "kategori_mounting_body"))
+        
+    # Add kategori_lighting sentences (100+ examples)  
+    for sentence in kategori_lighting_sentences:
+        training_data.append((sentence, "kategori_lighting"))
+        
+    # Add pengiriman sentences (100+ examples)
+    for sentence in pengiriman_sentences:
+        training_data.append((sentence, "pengiriman"))
+        
+    # Add durasi_pengiriman sentences (100+ examples)
+    for sentence in durasi_pengiriman_sentences:
+        training_data.append((sentence, "durasi_pengiriman"))
+        
+    # Add wilayah_pemasangan sentences (100+ examples)
+    for sentence in wilayah_pemasangan_sentences:
+        training_data.append((sentence, "wilayah_pemasangan"))
+        
+    # Add tipe_motor_matic sentences (100+ examples)
+    for sentence in tipe_motor_matic_sentences:
+        training_data.append((sentence, "tipe_motor_matic"))
+        
+    # Add stok_produk sentences (100+ examples)
+    for sentence in stok_produk_sentences:
+        training_data.append((sentence, "stok_produk"))
+        
+    # Add layanan_instalasi sentences (100+ examples)
+    for sentence in layanan_instalasi_sentences:
+        training_data.append((sentence, "layanan_instalasi"))
+    
+    print(f"✅ Loaded training data: {len(training_data)} total sentences")
+    print(f"📊 Distribution:")
+    print(f"   - Harga: {len(harga_sentences)} sentences")
+    print(f"   - Daftar: {len(daftar_sentences)} sentences") 
+    print(f"   - Jam Operasional: {len(jam_operasional_sentences)} sentences")
+    print(f"   - Garansi: {len(garansi_sentences)} sentences")
+    print(f"   - Booking Pemasangan: {len(booking_pemasangan_sentences)} sentences")
+    print(f"   - Kategori Mounting Body: {len(kategori_mounting_body_sentences)} sentences")
+    print(f"   - Kategori Lighting: {len(kategori_lighting_sentences)} sentences")
+    print(f"   - Pengiriman: {len(pengiriman_sentences)} sentences")
+    print(f"   - Durasi Pengiriman: {len(durasi_pengiriman_sentences)} sentences")
+    print(f"   - Wilayah Pemasangan: {len(wilayah_pemasangan_sentences)} sentences")
+    print(f"   - Tipe Motor Matic: {len(tipe_motor_matic_sentences)} sentences")
+    print(f"   - Stok Produk: {len(stok_produk_sentences)} sentences")
+    print(f"   - Layanan Instalasi: {len(layanan_instalasi_sentences)} sentences")
+    
+    return training_data
 
-    # Jam operasional (25 sentences)
-    "Jam berapa toko buka?",
-    "Kapan tutup setiap harinya?",
-    "Jadwal operasional workshop?",
-    "Apakah buka hari minggu?",
-    "Jam kerja dari pukul berapa?",
-    "Saya mau datang, buka sampai jam berapa?",
-    "Apakah ada hari libur?",
-    "Buka setiap hari atau ada libur?",
-    "Tutupnya jam berapa ya?",
-    "Hari apa saja kalian tutup?",
-    "Jam operasional workshop pemasangan?",
-    "Libur nasional tetap buka?",
-    "Weekend buka gak?",
-    "Sabtu minggu jam operasional sama?",
-    "Jam istirahat siang ada?",
-    "Toko buka 24 jam gak?",
-    "Kalau malam masih buka?",
-    "Hari raya tutup berapa hari?",
-    "Jadwal buka tutup gimana?",
-    "Weekend jam buka sama weekday?",
-    "Senin sampai jumat jam berapa?",
-    "Kalau lebaran libur berapa lama?",
-    "Break time jam berapa sampai berapa?",
-    "Malam minggu tutup jam berapa?",
-    "Hari kerja sampai jam berapa?",
-
-    # Garansi (25 sentences)
-    "Apakah ada garansi untuk mounting?",
-    "Berapa lama garansi lampu LED?",
-    "Produk body motor ada garansi tidak?",
-    "Kalau mounting rusak, bisa claim garansi?",
-    "Garansi pemasangan berapa bulan?",
-    "Apa saja yang ditanggung garansi?",
-    "Kalau cacat produksi, bisa tukar?",
-    "Garansi berlaku untuk semua produk?",
-    "Bisa klaim garansi di mana?",
-    "Kalau lampu mati dalam seminggu, garansi?",
-    "Mounting bengkok bisa garansi?",
-    "Syarat klaim garansi apa aja?",
-    "Garansi hanya untuk kerusakan pabrik?",
-    "Ada garansi untuk hasil pemasangan?",
-    "Kartu garansi dikasih waktu beli?",
-    "Warranty berlaku berapa tahun?",
-    "Kalau pecah bisa diganti gak?",
-    "Jaminan produk sampai kapan?",
-    "Garansi internasional ada gak?",
-    "Kalau rusak karena salah pasang gimana?",
-    "Coverage garansi meliputi apa aja?",
-    "Bisa extend garansi gak?",
-    "Nota pembelian harus disimpan?",
-    "Garansi void kalau dibongkar sendiri?",
-    "Return policy gimana?",
-
-    # Booking pemasangan (25 sentences)
-    "Bagaimana cara booking jasa pemasangan?",
-    "Saya mau pasang mounting, bisa booking?",
-    "Ada layanan pemasangan di rumah?",
-    "Bisa pasang lampu LED di workshop?",
-    "Pesan teknisi untuk pasang body motor",
-    "Jadwal pemasangan hari apa kosong?",
-    "Booking pemasangan harus H-berapa?",
-    "Biaya tambahan kalau pasang di rumah?",
-    "Teknisi bisa datang ke Cimahi?",
-    "Jam berapa teknisi bisa datang?",
-    "Pemasangan mounting butuh waktu berapa lama?",
-    "Bisa booking untuk besok?",
-    "Antrian pemasangan lagi penuh gak?",
-    "Pasang di toko gratis atau bayar?",
-    "Teknisi bawa tools lengkap?",
-    "Reservasi jasa install gimana?",
-    "Schedule pemasangan weekend ada?",
-    "Mobile service ada gak?",
-    "Bisa panggil teknisi ke rumah?",
-    "Appointment pemasangan di mana?",
-    "Slot waktu pemasangan tersedia?",
-    "On-site installation service ada?",
-    "Booking via online bisa?",
-    "Teknisi standby jam berapa?",
-    "Home service charge berapa?",
-
-    # Kategori Mounting & Body (30 sentences)
-    "Ada mounting apa saja?",
-    "Saya cari mounting untuk Vario 125",
-    "Tipe mounting yang kuat dan awet apa?",
-    "Mounting model sport tersedia?",
-    "Body motor Beat ada stok?",
-    "Saya butuh body custom untuk Jupiter",
-    "Ada mounting yang bisa disesuaikan?",
-    "Body belakang untuk motor matic ada?",
-    "Mounting universal untuk semua motor?",
-    "Pilihan warna body motor apa aja?",
-    "Ada body original atau aftermarket?",
-    "Mounting carbon fiber ada?",
-    "Body depan yang model sporty ada?",
-    "Rekomendasi mounting yang bagus?",
-    "Ada aksesoris body tambahan?",
-    "Body kit lengkap untuk Aerox ada?",
-    "Mounting aluminium atau plastik?",
-    "Fairing motor matic tersedia?",
-    "Body belakang model racing ada?",
-    "Mounting adjustable ada gak?",
-    "Windshield motor matic ada?",
-    "Body panel samping ada stok?",
-    "Mounting phone holder kuat gak?",
-    "Undercowl motor Beat ada?",
-    "Body copotan motor ada?",
-    "Custom body sesuai request bisa?",
-    "Mounting GPS waterproof ada?",
-    "Side panel motor Vario ada?",
-    "Body motor modifikasi tersedia?",
-    "Mounting action cam ada gak?",
-
-    # Kategori Lighting (30 sentences)
-    "Jual lampu motor tidak?",
-    "Saya cari lampu LED untuk Beat",
-    "Tipe lampu variasi apa tersedia?",
-    "Ada lampu sein yang terang?",
-    "Lampu depan LED model terbaru ada?",
-    "Saya mau ganti lampu motor jadi LED",
-    "Lampu belakang yang keren ada?",
-    "Ada lampu RGB yang bisa ganti warna?",
-    "Lampu untuk touring malam yang terang?",
-    "Pilihan lampu sein model apa aja?",
-    "Ada lampu angel eyes untuk motor matic?",
-    "Lampu projector buat motor ada?",
-    "LED strip buat dekorasi motor ada?",
-    "Lampu hazard untuk motor matic ada?",
-    "Rekomendasi lampu yang hemat listrik?",
-    "Headlamp LED H4 ada stok?",
-    "Lampu stop lamp LED tersedia?",
-    "DRL motor matic ada gak?",
-    "Lampu sen model kristal ada?",
-    "LED bar untuk motor ada?",
-    "Lampu sorot tambahan ada?",
-    "Bohlam LED 12V berapa watt?",
-    "Lampu emergency motor ada?",
-    "LED underglow motor tersedia?",
-    "Lampu rem LED model terbaru?",
-    "Strobo light motor ada gak?",
-    "Lampu kabut motor matic ada?",
-    "HID projector motor tersedia?",
-    "Lampu cornering motor ada?",
-    "LED accent lighting ada stok?",
-
-    # Pengiriman (25 sentences)
-    "Bagaimana cara pengirimannya?",
-    "Bisa kirim ke luar Bandung?",
-    "Ongkos kirim ke Jakarta berapa?",
-    "Pakai ekspedisi apa untuk kirim?",
-    "Bisa COD untuk area Bandung?",
-    "Pengiriman ke Cimahi kena ongkir gak?",
-    "Ada layanan antar di hari yang sama?",
-    "Kirim pakai Grab atau Gojek bisa?",
-    "Minimal order untuk free ongkir berapa?",
-    "Bisa pickup sendiri di toko?",
-    "Packaging produk aman gak?",
-    "Asuransi pengiriman tersedia?",
-    "Kirim luar pulau bisa?",
-    "Same day delivery tersedia?",
-    "Estimasi sampai berapa hari?",
-    "Ekspedisi yang dipakai apa aja?",
-    "Ongkir ke Surabaya berapa?",
-    "Bisa kirim via JNE?",
-    "Delivery charge dalam kota berapa?",
-    "Instant delivery ada gak?",
-    "Cargo darat atau udara?",
-    "Resi pengiriman dikasih gak?",
-    "Tracking online bisa?",
-    "Door to door service ada?",
-    "Express shipping tersedia?",
-
-    # Durasi pengiriman (25 sentences)
-    "Berapa lama barang sampai?",
-    "Estimasi pengiriman ke Bekasi berapa hari?",
-    "Kalau pesan sekarang, kapan sampai?",
-    "Lama pengiriman dalam kota berapa hari?",
-    "Pengiriman weekend tetap jalan?",
-    "Bisa urgent delivery gak?",
-    "Express delivery ada gak?",
-    "Estimasi ke luar Jawa berapa hari?",
-    "Kalau same day, jam berapa sampai?",
-    "Regular shipping butuh berapa hari?",
-    "Pengiriman hari libur delay gak?",
-    "Fastest delivery option apa?",
-    "Weekend order dikirim hari apa?",
-    "Overnight shipping tersedia?",
-    "Rush order bisa diatur?",
-    "Lead time pengiriman berapa?",
-    "Next day delivery ada?",
-    "Waktu tempuh ke Bogor berapa hari?",
-    "Kirim hari ini sampai kapan?",
-    "Delivery time luar kota gimana?",
-    "Estimasi tiba di alamat kapan?",
-    "Processing time berapa lama?",
-    "Cut off time order jam berapa?",
-    "Standard delivery berapa hari?",
-    "Priority shipping butuh berapa hari?",
-
-    # Wilayah pemasangan (25 sentences)
-    "Area mana saja untuk layanan pasang?",
-    "Bisa pasang di Cimahi?",
-    "Layanan pemasangan sampai mana?",
-    "Pasang di Bandung Timur bisa?",
-    "Coverage area pemasangan di mana?",
-    "Teknisi bisa ke Bandung Selatan?",
-    "Jangkauan layanan pasang sampai mana?",
-    "Bisa pasang di luar Bandung?",
-    "Area Cimahi masuk coverage gak?",
-    "Radius layanan pemasangan berapa km?",
-    "Ke Bandung Barat bisa pasang?",
-    "Margahayu termasuk area layanan?",
-    "Dago bisa dilayani untuk pasang?",
-    "Antapani masuk coverage area?",
-    "Ujungberung bisa dijangkau teknisi?",
-    "Service area meliputi mana aja?",
-    "Rancaekek masuk jangkauan gak?",
-    "Gedebage bisa dilayani?",
-    "Kopo termasuk coverage area?",
-    "Cileunyi masuk wilayah service?",
-    "Dayeuhkolot bisa dijangkau?",
-    "Soreang masuk area layanan?",
-    "Lembang bisa dilayani gak?",
-    "Majalaya termasuk coverage?",
-    "Katapang masuk jangkauan service?",
-
-    # Tipe motor matic yang didukung (25 sentences)
-    "Motor matic apa yang didukung?",
-    "Produk ini cocok untuk Aerox?",
-    "Saya pakai Vario, mounting bisa dipasang?",
-    "Ada aksesoris khusus untuk Scoopy?",
-    "Beat 2023 kompatibel gak?",
-    "PCX bisa pakai mounting ini?",
-    "Nmax support produk kalian?",
-    "Jupiter Z1 ada aksesorisnya?",
-    "Mio series bisa dipasang?",
-    "Lexi cocok dengan produk ini?",
-    "Motor Honda matic support semua?",
-    "Yamaha Freego kompatibel?",
-    "Gesits motor listrik bisa?",
-    "Vario 160 ada mounting khusus?",
-    "All new Beat support gak?",
-    "Vespa modern bisa dipasang?",
-    "Motor matic China support gak?",
-    "Old Vario compatible?",
-    "New PCX 160 bisa?",
-    "Aerox 155 support produk ini?",
-    "Beat Street compatible?",
-    "Scoopy generasi lama bisa?",
-    "Motor matic 150cc ke atas support?",
-    "Fino bisa pakai produk ini?",
-    "Soul GT compatible gak?",
-
-    # Stok produk (25 sentences)
-    "Apakah barang ready stock?",
-    "Mounting untuk Beat masih ada?",
-    "Stok lampu LED habis ya?",
-    "Body motor warna hitam ada stok?",
-    "Kapan restock produk ini?",
-    "Ready stock untuk semua varian?",
-    "Stok mounting carbon masih ada?",
-    "Barang pre-order atau ready?",
-    "Estimasi restock kapan?",
-    "Ada alternatif kalau stok habis?",
-    "Indent order bisa gak?",
-    "Waiting list untuk produk ini ada?",
-    "Stok terbatas atau banyak?",
-    "Bisa booking barang yang belum ada?",
-    "Notification restock bisa diatur?",
-    "Inventory update kapan?",
-    "Stock availability gimana?",
-    "Barang langka masih ada?",
-    "Limited edition masih tersedia?",
-    "Produk discontinued masih ada?",
-    "Import stock ready gak?",
-    "Seasonal item ada stok?",
-    "Best seller masih available?",
-    "New arrival sudah masuk?",
-    "Back order sistem ada?",
-
-    # Layanan instalasi (25 sentences)
-    "Ada jasa pasang mounting?",
-    "Pemasangan lampu LED termasuk?",
-    "Teknisi berpengalaman gak?",
-    "Garansi pemasangan ada?",
-    "Biaya jasa pasang terpisah?",
-    "Lama pemasangan berapa jam?",
-    "Tools lengkap dibawa teknisi?",
-    "Bisa konsultasi cara pemasangan?",
-    "Tutorial pasang sendiri ada?",
-    "Komplain hasil pemasangan bisa?",
-    "Sertifikat teknisi ada?",
-    "After sales service tersedia?",
-    "Maintenance berkala ditawarkan?",
-    "Training pemasangan untuk customer?",
-    "Support teknis via phone ada?",
-    "Installation service termasuk garansi?",
-    "Technician datang bawa spare part?",
-    "Pemasangan on-site atau di bengkel?",
-    "Workshop installation available?",
-    "Mobile mechanic service ada?",
-    "Professional installer tersedia?",
-    "Custom installation bisa?",
-    "Setup service untuk produk baru?",
-    "Technical support 24/7?",
-    "Certified installer ada gak?"
-]
-
-labels = (
-    ["harga"] * 30 +
-    ["daftar"] * 25 +
-    ["jam_operasional"] * 25 +
-    ["garansi"] * 25 +
-    ["booking_pemasangan"] * 25 +
-    ["kategori_mounting_body"] * 30 +
-    ["kategori_lighting"] * 30 +
-    ["pengiriman"] * 25 +
-    ["durasi_pengiriman"] * 25 +
-    ["wilayah_pemasangan"] * 25 +
-    ["tipe_motor_matic"] * 25 +
-    ["stok_produk"] * 25 +
-    ["layanan_instalasi"] * 25
-)
+# Expose the training data function
+if __name__ == "__main__":
+    data = get_training_data()
+    print(f"\n🎯 Total training examples: {len(data)}")
+    print(f"📈 Average per category: {len(data) / 13:.1f} sentences")
+    print(f"🚀 Ready for high-performance training!")

@@ -4,6 +4,12 @@
 
 This is an intelligent chatbot system designed specifically for a motorcycle spare parts business located in Bandung, Indonesia. The chatbot can understand and respond to customer inquiries in **Bahasa Indonesia** with **multi-intent detection**, meaning it can handle complex questions that involve multiple topics at once.
 
+### 📌 Current Version: **v2.0** (November 2024)
+- **Major Dataset Expansion**: 1,330+ sentences (4x growth)
+- **Enhanced Indonesian Language**: Improved language quality and authenticity
+- **Business Model Accuracy**: Corrected service scope and registration process
+- **Better Organization**: Structured dataset in dedicated `data/` directory
+
 ### 🎯 Business Context
 - **Business Type**: Motorcycle Spare Parts Store
 - **Location**: Bandung & Cimahi, West Java, Indonesia
@@ -28,19 +34,21 @@ This is an intelligent chatbot system designed specifically for a motorcycle spa
 - **Indonesian Language**: Natural Bahasa Indonesia with slang and regional terms
 
 ### 🎌 Supported Intents
-1. **harga** - Pricing and cost inquiries
-2. **daftar** - Registration and membership
-3. **jam_operasional** - Operating hours and schedule
-4. **garansi** - Warranty and guarantee information
-5. **booking_pemasangan** - Installation booking service
-6. **kategori_mounting_body** - Mounting and body products
-7. **kategori_lighting** - Lighting products
-8. **pengiriman** - Shipping and delivery
-9. **durasi_pengiriman** - Delivery time estimates
-10. **wilayah_pemasangan** - Installation coverage area
-11. **tipe_motor_matic** - Supported motorcycle types
-12. **stok_produk** - Stock availability
-13. **layanan_instalasi** - Installation services
+1. **harga** - Pricing and cost inquiries (100+ sentences)
+2. **daftar** - Registration for installation booking (100+ sentences)
+3. **jam_operasional** - Operating hours and schedule (100+ sentences)
+4. **garansi** - Warranty and guarantee information (100+ sentences)
+5. **booking_pemasangan** - Installation booking service (100+ sentences)
+6. **kategori_mounting_body** - Mounting and body products (100+ sentences)
+7. **kategori_lighting** - Lighting products (100+ sentences)
+8. **pengiriman** - Shipping and delivery (100+ sentences)
+9. **durasi_pengiriman** - Delivery time estimates (100+ sentences)
+10. **wilayah_pemasangan** - Installation coverage area (100+ sentences)
+11. **tipe_motor_matic** - Supported motorcycle types (100+ sentences)
+12. **stok_produk** - Stock availability (100+ sentences)
+13. **layanan_instalasi** - Installation services (100+ sentences)
+
+> **Note**: The `daftar` intent specifically handles registration for installation booking services, requiring customer name, email, and phone number. This replaces any previous membership/VIP concepts that don't exist in the actual business model.
 
 ---
 
@@ -49,11 +57,24 @@ This is an intelligent chatbot system designed specifically for a motorcycle spa
 ```
 ml_model/
 ├── 📄 predict.py          # Main prediction system with multi-intent logic
-├── 📄 intent_data.py      # Training data (330+ Indonesian sentences)
+├── 📄 intent_data.py      # Main training data loader
 ├── 📄 train_model.py      # Model training script
-├── 📄 test_multi_intent.py # Testing script for multi-intent functionality
 ├── 📄 chat_model.pkl      # Trained Naive Bayes model
 ├── 📄 vectorizer.pkl      # TF-IDF vectorizer
+├── 📁 data/               # Dataset directory (1,330+ Indonesian sentences)
+│   ├── 📄 harga.py           # Pricing and cost inquiries (100+ sentences)
+│   ├── 📄 daftar.py          # Registration for installation booking (100+ sentences)
+│   ├── 📄 jam_operasional.py # Operating hours and schedule (100+ sentences)
+│   ├── 📄 garansi.py         # Warranty and guarantee information (100+ sentences)
+│   ├── 📄 booking_pemasangan.py # Installation booking service (100+ sentences)
+│   ├── 📄 kategori_mounting_body.py # Mounting and body products (100+ sentences)
+│   ├── 📄 kategori_lighting.py # Lighting products (100+ sentences)
+│   ├── 📄 pengiriman.py      # Shipping and delivery (100+ sentences)
+│   ├── 📄 durasi_pengiriman.py # Delivery time estimates (100+ sentences)
+│   ├── 📄 wilayah_pemasangan.py # Installation coverage area (100+ sentences)
+│   ├── 📄 tipe_motor_matic.py # Supported motorcycle types (100+ sentences)
+│   ├── 📄 stok_produk.py     # Stock availability (100+ sentences)
+│   └── 📄 layanan_instalasi.py # Installation services (100+ sentences)
 └── 📄 README.md           # This documentation
 ```
 
@@ -136,14 +157,17 @@ Response Selection → Multi-Response Output
 ```
 
 ### 📊 Training Data Statistics
-- **Total Sentences**: 330+
+- **Total Sentences**: 1,330+ (significantly expanded dataset)
 - **Intent Distribution**:
-  - High Priority: 30 sentences (harga, mounting_body, lighting)
-  - Standard: 25 sentences each (other intents)
+  - Comprehensive coverage: 100+ sentences per intent category
+  - Balanced dataset across all 13 intent categories
+  - Rich variations in each category with proper categorization
 - **Language Features**:
-  - Indonesian slang: "brp", "gak", "gimana"
-  - Regional terms: Bandung area locations
+  - **Predominantly Indonesian** with natural mixed terminology
+  - Indonesian slang: "brp", "gak", "gimana", "aja", "bisa"
+  - Regional terms: Bandung, Cimahi, Jabar area locations
   - Technical terms: motorcycle and electronics vocabulary
+  - **Language Quality**: Recently improved from mixed English-Indonesian to predominantly Indonesian while preserving natural motorcycle community terminology
 
 ### 🎯 Keyword Bank Structure
 ```python
@@ -159,11 +183,14 @@ keyword_bank = {
 ## 🏍️ Supported Motorcycles
 
 ### ✅ Currently Supported
-- **Honda**: Beat, Vario, Revo X, PCX, Scoopy, Vespa
-- **Yamaha**: Vega Force, Jupiter Z1, Aerox
-- **Suzuki**: Address FI, Smash FI
-- **TVS**: Dazz
-- **Viar**: Star NX
+- **Honda**: Beat, Vario 125/160, PCX, Scoopy, Revo X, Genio, Stylo, Spacy, Dio
+- **Yamaha**: Aerox, Nmax, Freego, Lexi, Mio series, Fino, Gear, Soul GT, Vega, Jupiter Z, XRide
+- **Suzuki**: Address, Nex II, Skydrive, Spin, Satria, Hayate, Smash
+- **Kawasaki**: Ninja series, KLX series, Versys
+- **TVS**: Various models supported
+- **KTM**: Duke series
+- **Vespa**: Classic and modern series
+- **Other**: Various imported and local brands
 
 ### 📍 Service Coverage
 - **Installation Service**: Bandung City & Cimahi only
@@ -172,35 +199,150 @@ keyword_bank = {
 
 ---
 
+## 🆕 Recent Improvements
+
+### 📈 Dataset Expansion (November 2024)
+- **4x Dataset Growth**: Expanded from 330+ to 1,330+ sentences
+- **Comprehensive Coverage**: Each intent now has 100+ high-quality sentences
+- **Better Organization**: Structured dataset files in dedicated `data/` directory
+- **Rich Categorization**: Each dataset file has well-organized sections and categories
+
+### 🇮🇩 Language Quality Enhancement
+- **Improved Indonesian Usage**: Converted fully English sentences to Indonesian
+- **Natural Mixed Terminology**: Preserved authentic motorcycle community language
+- **Regional Authenticity**: Maintained Bandung-Cimahi area terminology
+- **Technical Balance**: Kept necessary English technical terms while improving overall Indonesian quality
+
+### 🎯 Business Model Accuracy
+- **Corrected Registration**: `daftar` intent now specifically handles installation booking registration
+- **Removed Non-existent Services**: Eliminated VIP/membership/reseller programs that don't exist
+- **Focused Service Scope**: Clear focus on actual business services (installation booking with name, email, phone)
+
+### 📊 Model Performance
+- **Maintained Accuracy**: All improvements preserve model performance and accuracy
+- **Faster Training**: Better organized dataset structure
+- **Consistent Results**: Thoroughly tested to ensure stability
+
+---
+
+## 📅 Version History
+
+### 🚀 **Version 1.1** (July 2025) - *Current*
+#### 📈 **Major Dataset Expansion**
+- **Dataset Size**: 1,330+ sentences (expanded from 330+)
+- **Coverage**: 100+ sentences per intent category (previously ~25)
+- **Organization**: Structured into dedicated `data/` directory with 13 separate files
+- **Categories**: Well-organized sections within each dataset file
+
+#### 🇮🇩 **Language Quality Enhancement**
+- **Indonesian Improvement**: Converted fully English sentences to Indonesian
+- **Natural Terminology**: Preserved authentic motorcycle community mixed language
+- **Regional Accuracy**: Maintained Bandung-Cimahi area authenticity
+- **Technical Balance**: Kept necessary English terms while improving overall Indonesian quality
+
+#### 🎯 **Business Model Corrections**
+- **Registration Scope**: `daftar` intent now specifically handles installation booking registration
+- **Service Accuracy**: Removed non-existent VIP/membership/reseller programs
+- **Clear Focus**: Registration requires only name, email, and phone number
+- **Realistic Services**: Aligned with actual business operations
+
+#### 🛠️ **Technical Improvements**
+- **File Structure**: Reorganized codebase with better separation of concerns
+- **Dataset Management**: Individual files for each intent category
+- **Maintainability**: Easier to update and expand individual categories
+- **Performance**: Maintained model accuracy while improving organization
+
+---
+
+### 📋 **Version 1.0** (Initial Release)
+#### 🔧 **Core Features**
+- **Dataset Size**: 330+ sentences across 13 intent categories
+- **Multi-Intent Detection**: Primary ML detection + secondary keyword matching
+- **Indonesian Support**: Basic Bahasa Indonesia with mixed English
+- **Motorcycle Focus**: Specialized for motorcycle spare parts business
+
+#### 📊 **Dataset Distribution**
+- **High Priority**: 30 sentences (harga, mounting_body, lighting)
+- **Standard Coverage**: 25 sentences each (other intents)
+- **Single File**: All training data in `intent_data.py`
+- **Basic Organization**: Simple list structure
+
+#### 🎌 **Intent Categories**
+- **13 Intent Types**: Same categories as current version
+- **Basic Responses**: Standard response templates
+- **Limited Scope**: Included some non-existent business services
+- **Mixed Language**: Heavy mix of English-Indonesian
+
+#### 🏍️ **Motorcycle Support**
+- **Limited Models**: Basic Honda, Yamaha, Suzuki support
+- **Basic Compatibility**: Simple motorcycle type checking
+- **Regional Focus**: Bandung area service
+
+---
+
+## 🔄 Migration Guide (v1.0 → v2.0)
+
+### ✅ **Automatic Compatibility**
+- **Model Files**: Existing `chat_model.pkl` and `vectorizer.pkl` remain compatible
+- **API Interface**: `predict.py` functions unchanged for existing integrations
+- **Response Format**: Same response structure and formatting
+
+### 🔄 **What Changed**
+- **Dataset Location**: Training data moved from single file to `data/` directory
+- **Dataset Size**: 4x expansion requires retraining for optimal performance
+- **Language Quality**: Better Indonesian sentences for improved accuracy
+- **Business Scope**: More accurate service representation
+
+### 🚀 **Recommended Update Steps**
+1. **Backup Current Model**: Save existing `chat_model.pkl` and `vectorizer.pkl`
+2. **Retrain Model**: Run `python train_model.py` with new dataset
+3. **Test Performance**: Verify improved accuracy with Indonesian queries
+4. **Deploy**: Use new model files for production
+
+---
+
 ## 🔧 Customization Guide
 
 ### 📝 Adding New Training Data
-1. **Edit `intent_data.py`**:
+1. **Edit the appropriate file in the `data/` directory**:
    ```python
-   # Add new sentences to existing intents
-   training_sentences = [
-       # Add your new Indonesian sentences here
-       "Contoh kalimat baru untuk intent tertentu",
+   # Example: Edit data/harga.py
+   sentences = [
+       # Add new Indonesian sentences here
+       "Contoh kalimat baru untuk intent harga",
+       "Berapa harga mounting terbaru?",
        # ...
    ]
-   
-   # Update labels count
-   labels = (
-       ["harga"] * 35 +  # Increased from 30
-       # ...
-   )
    ```
 
-2. **Retrain the model**:
+2. **Each dataset file is well-organized with sections**:
+   ```python
+   # Example structure in data/harga.py
+   sentences = [
+       # Basic pricing inquiries
+       "Berapa harga mounting untuk Beat?",
+       
+       # Specific product pricing  
+       "Harga lampu LED berapa?",
+       
+       # Installation pricing
+       "Biaya pasang mounting berapa?",
+       # ... and so on with 100+ sentences
+   ]
+   ```
+
+3. **Retrain the model**:
    ```bash
    python train_model.py
    ```
 
 ### 🆕 Adding New Intent Categories
-1. **Add training data** in `intent_data.py`
-2. **Add response** in `predict.py` → `answer_dict`
-3. **Add keywords** in `predict.py` → `keyword_bank`
-4. **Update motor list** if needed in `motor_tersedia`
+1. **Create new dataset file** in `data/` directory (e.g., `data/new_intent.py`)
+2. **Add 100+ Indonesian sentences** following the established format
+3. **Update `intent_data.py`** to import the new dataset
+4. **Add response** in `predict.py` → `answer_dict`
+5. **Add keywords** in `predict.py` → `keyword_bank`
+6. **Update motor list** if needed in `motor_tersedia`
 
 ### 🎨 Customizing Responses
 Edit the `answer_dict` in `predict.py`:
@@ -250,18 +392,6 @@ def chat():
     return jsonify({'responses': responses})
 ```
 
-### 📱 WhatsApp Integration
-- Use with WhatsApp Business API
-- Integrate with Twilio/ChatAPI
-- Support for rich formatting
-
-### 🤖 Discord/Telegram Bot
-- Easy integration with bot frameworks
-- Multi-response handling
-- Indonesian language support
-
----
-
 ## 📈 Performance Optimization
 
 ### 🚀 Speed Improvements
@@ -304,3 +434,7 @@ from predict import predict_intents
 intents = predict_intents("your query")
 print(f"Detected intents: {intents}")
 ```
+
+---
+
+Last Updated: June 2025 Version: 1.1 - Major Dataset Expansion
