@@ -368,7 +368,7 @@ keyword_bank = {
 
 ## 🆕 Recent Improvements
 
-### 📈 Dataset Expansion (November 2024)
+### 📈 Dataset Expansion (June 2025)
 - **4x Dataset Growth**: Expanded from 330+ to 1,330+ sentences
 - **Comprehensive Coverage**: Each intent now has 100+ high-quality sentences
 - **Better Organization**: Structured dataset files in dedicated `data/` directory
