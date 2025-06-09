@@ -131,7 +131,62 @@ durasi_pengiriman_sentences = [
     "Estimasi sampai pinggiran kota?",
     "Lama kirim daerah terpencil?",
     "Durasi pengiriman rural?",
-    "Waktu delivery ke pelosok?"
+    "Waktu delivery ke pelosok?",
+    
+    # Specific problematic patterns - pengiriman ke Bandung variations
+    "Kalau pengiriman ke Bandung berapa lama?",
+    "Pengiriman ke Bandung brp lama?",
+    "Bila pengiriman ke bandung berapa hari?",
+    "Bila memasukan kirim ke bandung bisa?",
+    "Mau pesan, kirim ke bandung bisa?",
+    "Kirim ke Bandung berapa hari sampai?",
+    "Kalau mau kirim ke Bandung kapan sampai?",
+    "Delivery ke Bandung butuh berapa lama?",
+    "Pengiriman Bandung estimasi berapa hari?",
+    "Kirim barang ke Bandung berapa lama?",
+    
+    # More variations with different cities to strengthen the pattern
+    "Kalau pengiriman ke Jakarta berapa lama?",
+    "Bila memasukan kirim ke Jakarta bisa?",
+    "Mau pesan, kirim ke Jakarta bisa?",
+    "Kalau pengiriman ke Surabaya berapa lama?",
+    "Bila memasukan kirim ke Surabaya bisa?",
+    "Mau pesan, kirim ke Surabaya bisa?",
+    "Kalau pengiriman ke Yogya berapa lama?",
+    "Bila memasukan kirim ke Yogya bisa?",
+    "Mau pesan, kirim ke Yogya bisa?",
+    
+    # Order + shipping time combinations
+    "Kalau order sekarang, ke Bandung berapa hari?",
+    "Pesan hari ini ke Bandung kapan sampai?",
+    "Order barang ke Bandung berapa lama?",
+    "Beli sekarang ke Bandung kapan tiba?",
+    "Checkout hari ini ke Bandung estimasi kapan?",
+    "Purchase ke Bandung delivery time berapa?",
+    "Transaksi hari ini ke Bandung kapan nyampe?",
+    "Bayar sekarang ke Bandung sampai kapan?",
+    
+    # Question patterns that might be misclassified
+    "Ongkir ke Bandung berapa dan berapa lama?",
+    "Biaya kirim ke Bandung dan estimasi waktu?",
+    "Tarif pengiriman Bandung plus durasi?",
+    "Cost delivery Bandung sama time estimate?",
+    "Harga kirim ke Bandung berapa lama sampai?",
+    "Fee pengiriman Bandung dan eta berapa?",
+    
+    # Informal and conversational patterns
+    "Ke Bandung nyampe berapa hari sih?",
+    "Bandung butuh berapa hari ya?",
+    "Kirim Bandung lama ga?",
+    "Ke Bandung berapa lama dong?",
+    "Bandung estimasi berapa hari ya?",
+    "Delivery Bandung fast ga?",
+    "Kirim ke Bandung express ada?",
+    "Ke Bandung same day bisa?",
+    "Bandung overnight shipping ada?",
+    "Rush delivery ke Bandung bisa?"
 ]
 
-# Total: 100+ sentences for durasi_pengiriman intent 
+# Total: 150+ sentences for durasi_pengiriman intent
+# Added specific patterns for "pengiriman ke [city]" variations
+# to prevent misclassification to product intent 

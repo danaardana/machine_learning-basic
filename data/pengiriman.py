@@ -131,7 +131,32 @@ pengiriman_sentences = [
     "Bulk discount shipping?",
     "Volume pricing delivery?",
     "Customer discount shipping?",
-    "Regular rate delivery?"
+    "Regular rate delivery?",
+    
+    # Specific shipping capability inquiries
+    "Kirim ke Bandung tersedia?",
+    "Pengiriman ke Bandung bisa?",
+    "Ke Bandung ada layanan kirim?",
+    "Delivery ke Bandung support?",
+    "Shipping ke Bandung available?",
+    "Bandung masuk coverage area?",
+    "Area Bandung dijangkau?",
+    "Layanan ke Bandung ada?",
+    "Bandung termasuk zona kirim?",
+    "Coverage ke Bandung gimana?",
+    
+    # Order placement + shipping inquiries
+    "Kalau pesan, kirim ke Bandung bisa?",
+    "Order ke Bandung bisa diproses?",
+    "Beli barang kirim Bandung bisa?",
+    "Purchase ke Bandung tersedia?",
+    "Checkout ke Bandung support?",
+    "Transaksi ke Bandung available?",
+    "Pembelian ke Bandung bisa?",
+    "Shopping ke Bandung ada layanan?",
+    "Belanja kirim Bandung gimana?",
+    "Order online ke Bandung bisa?"
 ]
 
-# Total: 100+ sentences for pengiriman intent 
+# Total: 120+ sentences for pengiriman intent
+# Added patterns for shipping capability and order+shipping combinations 
